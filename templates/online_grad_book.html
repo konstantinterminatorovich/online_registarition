@@ -1,7 +1,13 @@
+<h1>Online grad book</h1>
+<body style="background-color:#e0e0e0">
 <form id="backendForm" method="post">
     <h1>Backend</h1>
+    <h3>Name</h3>
     <input id="backendInput" type="text">
+    <h3>Email</h3>
+    <input id="email" type="email">
     <button type="submit">Submit</button>
+    <div id="outputContainerBackend"></div>
 </form>
 
 <script>
@@ -11,19 +17,45 @@
         var input = document.getElementById("backendInput");
         var text = input.value;
 
-        // Выводим текст после кнопки
         var output = document.createElement("p");
         output.textContent = text;
-        document.getElementById("backendForm").appendChild(output);
 
-        // Очищаем поле ввода
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Видалити";
+        deleteButton.addEventListener("click", function() {
+            output.remove();
+            deleteButton.remove();
+        });
+
+        var outputContainer = document.getElementById("outputContainerBackend");
+        outputContainer.appendChild(output);
+        outputContainer.appendChild(deleteButton);
+
+        input.value = "";
+    });
+      document.getElementById("backendForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы
+
+        var input = document.getElementById("email");
+        var text = input.value;
+
+
+
+
+
         input.value = "";
     });
 </script>
-<form id="frontForm" method="post">
+
+<form id="frontendForm" method="post">
     <h1>Frontend</h1>
+   <h3>Name</h3>
     <input id="frontendInput" type="text">
+    <h3>Email</h3>
+    <input id="femail" type="email">
     <button type="submit">Submit</button>
+    <div id="outputContainerFrontend"></div>
 </form>
 
 <script>
@@ -33,13 +65,36 @@
         var input = document.getElementById("frontendInput");
         var text = input.value;
 
-        // Выводим текст после кнопки
         var output = document.createElement("p");
         output.textContent = text;
-        document.getElementById("frontendForm").appendChild(output);
 
-        // Очищаем поле ввода
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Видалити";
+        deleteButton.addEventListener("click", function() {
+            output.remove();
+            deleteButton.remove();
+        });
+
+        var outputContainer = document.getElementById("outputContainerBackend");
+        outputContainer.appendChild(output);
+        outputContainer.appendChild(deleteButton);
+
+        input.value = "";
+    });
+      document.getElementById("frontendForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы
+
+        var input = document.getElementById("femail");
+        var text = input.value;
+
+
+
+
+
         input.value = "";
     });
 </script>
+
 <a href="create.html">Go back</a>
+</body>
